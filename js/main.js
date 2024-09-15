@@ -70,7 +70,35 @@ const addImages = () => {
     resultLayout += `<li><img src="${image.url}" alt="${image.alt}" class="task3-img"></li>`;
   });
 
-  listEl.insertAdjacentHTML("afterbegin", resultLayout)
+  listEl.insertAdjacentHTML("afterbegin", resultLayout);
 };
 
 addImages();
+
+// Task 4
+
+const initCounter = () => {
+  const counterEl = document.querySelector("#value");
+  let counterVal = 0;
+
+  const increment = () => {
+    counterVal++;
+
+    return counterEl.textContent = counterVal;
+  };
+
+  const decrement = () => {
+    counterVal--;
+
+    return counterEl.textContent = counterVal;
+  };
+
+  document
+    .querySelector(`[data-action="increment"]`)
+    .addEventListener("click", increment);
+  document
+    .querySelector(`[data-action="decrement"]`)
+    .addEventListener("click", decrement);
+};
+
+initCounter();
